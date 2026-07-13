@@ -48,7 +48,7 @@ if [ "$(curl -L -I "${CUSTOM_ZED_SDK_URL}" -o /dev/null -s -w '%{http_code}\n' |
 
     echo "Building dockerfile for $1 and a custom ZED SDK"
 
-    docker build -t zed_ros2_l4t_${l4t_major}.${l4t_minor}.${l4t_patch}_sdk_custom \
+    docker build --network=host -t zed_ros2_l4t_${l4t_major}.${l4t_minor}.${l4t_patch}_sdk_custom \
     --build-arg CUSTOM_ZED_SDK_URL=$CUSTOM_ZED_SDK_URL \
     --build-arg L4T_VERSION=$1 \
     --build-arg L4T_MAJOR=$l4t_major \
@@ -70,7 +70,7 @@ else
 
     echo "Building dockerfile for $1 and ZED SDK $2"
 
-    docker build -t zed_ros2_l4t_${l4t_major}.${l4t_minor}.${l4t_patch}_sdk_${sdk_major}.${sdk_minor}.${sdk_patch} \
+    docker build --network=host -t zed_ros2_l4t_${l4t_major}.${l4t_minor}.${l4t_patch}_sdk_${sdk_major}.${sdk_minor}.${sdk_patch} \
     --build-arg ZED_SDK_MAJOR=$sdk_major \
     --build-arg ZED_SDK_MINOR=$sdk_minor \
     --build-arg ZED_SDK_PATCH=$sdk_patch \
