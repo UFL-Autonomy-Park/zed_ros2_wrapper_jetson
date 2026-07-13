@@ -101,9 +101,6 @@ RUN wget https://github.com/ros/xacro/archive/refs/tags/${XACRO_VERSION}.tar.gz 
 RUN echo "deb [arch=arm64 signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" \
   > /etc/apt/sources.list.d/ros2.list && \
   apt-get update
-
-# Install MAVROS
-RUN apt install -y ros-humble-mavros ros-humble-mavros-msgs ros-humble-mavros-extras
     
 # Install cython
 RUN python3 -m pip install --upgrade cython
@@ -118,11 +115,6 @@ RUN /bin/bash -c "source /opt/ros/$ROS_DISTRO/install/setup.bash && \
   ' -DCMAKE_CXX_FLAGS="-Wl,--allow-shlib-undefined"' \
   ' --no-warn-unused-cli' "
   
-# Install geographiclib datasets
-RUN /bin/bash -c "source /opt/ros/$ROS_DISTRO/setup.bash && \
-    source /root/ros2_ws/install/setup.bash && \
-    ros2 run mavros install_geographiclib_datasets.sh"
-
 WORKDIR /root/ros2_ws
 
 # Setup environment variables 
