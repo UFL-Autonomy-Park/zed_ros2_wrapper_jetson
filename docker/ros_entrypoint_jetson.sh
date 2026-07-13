@@ -5,10 +5,6 @@ set -e
 source "/opt/ros/$ROS_DISTRO/install/setup.bash"
 source "/root/ros2_ws/install/local_setup.bash"
 
-export ROS_DOMAIN_ID=0
-export ROS_LOCALHOST_ONLY=0
-export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-
 # Welcome information
 echo "ZED ROS2 Docker Image"
 echo "---------------------"
