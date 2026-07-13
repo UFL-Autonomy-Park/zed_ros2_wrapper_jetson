@@ -23,7 +23,7 @@ ZED_SDK_version=$2
 
 
 # copy the wrapper content
-rm -r ./tmp_sources
+rm -rf ./tmp_sources
 mkdir -p ./tmp_sources
 cp -r ../zed* ./tmp_sources
 
@@ -82,4 +82,4 @@ else
 fi
 
 # Remove the temporary folder
-rm -r ./tmp_sources
+rm -rf ./tmp_sources
