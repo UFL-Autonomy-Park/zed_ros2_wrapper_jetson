@@ -29,6 +29,9 @@ ARG POINTCLOUD_TRANSPORT_PLUGINS_VERSION=1.0.11
 ARG BACKWARD_ROS_VERSION=1.0.7
 ENV PYPI_URL=https://pypi.jetson-ai-lab.io/jp6/cu126
 
+# Label for GHCR
+LABEL org.opencontainers.image.source="https://github.com/UFL-Autonomy-Park/zed_ros2_wrapper_jetson"
+
 
 ENV DEBIAN_FRONTEND=noninteractive
 
