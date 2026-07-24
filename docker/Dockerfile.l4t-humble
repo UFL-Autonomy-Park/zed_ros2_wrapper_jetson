@@ -65,7 +65,7 @@ RUN echo "# R${L4T_MAJOR} (release), REVISION: ${L4T_MINOR}" > /etc/nv_tegra_rel
   ros-humble-rmw-fastrtps-cpp ros-humble-fastrtps \
  libgeographic-dev libdraco-dev zlib1g-dev -y && \
   export PIP_INDEX_URL="${PYPI_URL}" && \
-  pip install protobuf && \
+  python3 -m pip install --no-cache-dir --index-url https://pypi.org/simple protobuf && \
   wget -q --no-check-certificate -O ZED_SDK_Linux_JP.run \
   ${ZED_SDK_URL} && \
   chmod +x ZED_SDK_Linux_JP.run ; ./ZED_SDK_Linux_JP.run silent skip_tools && \
